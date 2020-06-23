@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <title>Calculator</title>
 </head>
@@ -12,7 +12,10 @@
     </h1>
     <section id="calculator">
         <section id="main-calulator-div">
-            <div class="calc" id="result-area"></div>
+            <div class="calc" id="result-area">
+                <h1 id="result">
+                </h1>
+            </div>
             <button class="calc other" id="clear-button">C</button>
             <button class="calc other" id="delete-button">DEL</button>
             <button class="calc operation" id="divide-button">÷</button>
