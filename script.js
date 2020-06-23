@@ -35,6 +35,8 @@ function setNumButtons() {
 function setClearButton() {
     clearButton.addEventListener("click", function clearClick() {
         displayNumber = "";
+        currentOperation = "";
+        result = 0;
         resultBox.innerHTML = displayNumber;
     });
 }
