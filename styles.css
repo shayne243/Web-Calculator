@@ -45,6 +45,9 @@ body {
     border-radius: 5px;
     max-width: 340px;
 }
+#result {
+    padding-right: 10px;
+}
 .calc {
     margin: 10px;
     height: 70px;

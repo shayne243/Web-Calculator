@@ -18,14 +18,13 @@ function setNumButtons() {
         numbers[i].addEventListener("click", function numberClick() {
             if (currentOperation == "") {
                 displayNumber+=digit;
-                result = parseInt(displayNumber);
+                result = parseFloat(displayNumber);
                 resultBox.innerHTML = displayNumber;
             }
             else {
-                displayNumber = "";
                 displayNumber+=digit;
                 resultBox.innerHTML = displayNumber;
-                result = operationParser(currentOperation, result, parseInt(displayNumber));
+                result = operationParser(currentOperation, result, parseFloat(displayNumber));
             }
             console.log(result);
         });
@@ -53,6 +52,7 @@ function setDeleteButton() {
 function setOperationButtons() {
     for (let i = 0; i < operations.length; ++i) {
         operations[i].addEventListener("click", function operationClick() {
+            displayNumber = "";
             operationTemp = currentOperation = operations[i].innerHTML;
         });
     }
