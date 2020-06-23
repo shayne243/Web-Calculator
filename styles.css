@@ -72,10 +72,6 @@ body {
     border:solid 1px #169b49;
     box-shadow: 0px 6px 0px #1d573b;    
 }
-#delete-button {
-    grid-column: 2/4;
-    width: auto;
-}
 button {
     position:relative;
     outline: none;

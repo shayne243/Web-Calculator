@@ -1,6 +1,7 @@
 let displayNumber = "";
 let currentOperation = "";
 let result = 0;
+let negativeFlag = false;
 let resultBox = document.getElementById("result");
 let numbers = document.querySelectorAll(".number");
 let operations = document.querySelectorAll(".operation");
@@ -11,6 +12,7 @@ let multiplyButton = document.getElementById("multiplication-button");
 let clearButton = document.getElementById("clear-button");
 let deleteButton = document.getElementById("delete-button");
 let equalButton = document.getElementById("equals-button");
+let negativeButton = document.getElementById("negative-button");
 
 function setNumButtons() {
     for (let i = 0; i < numbers.length; i++) {
@@ -53,6 +55,7 @@ function setOperationButtons() {
     for (let i = 0; i < operations.length; ++i) {
         operations[i].addEventListener("click", function operationClick() {
             displayNumber = "";
+            negativeFlag = false;
             operationTemp = currentOperation = operations[i].innerHTML;
         });
     }
@@ -78,11 +81,26 @@ function setOperationButtons() {
  }
 
  function setEqualsButton() {
-     equalButton.addEventListener("click", function equalClick() {
+    equalButton.addEventListener("click", function equalClick() {
         console.log(result);
         resultBox.innerHTML = result.toString();
-     });
- }
+        displayNumber = "";
+        currentOperation = "";
+        result = 0;
+    });
+}
+
+function setNegativeButton() {
+    negativeButton.addEventListener("click", function negativeClick() {
+        if (!negativeFlag) {
+            negativeFlag = true;
+            result*=-1;
+            console.log(result);
+            displayNumber = "-".concat(displayNumber);
+            resultBox.innerHTML = displayNumber;
+        }
+    })
+}
 
 add = (x, y) => x + y;
 subtract = (x, y) => x - y;
@@ -94,3 +112,4 @@ setClearButton();
 setDeleteButton();
 setOperationButtons();
 setEqualsButton();
+setNegativeButton();
