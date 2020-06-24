@@ -10,7 +10,6 @@ let minusButton = document.getElementById("substraction-button");
 let divideButton = document.getElementById("division-button");
 let multiplyButton = document.getElementById("multiplication-button");
 let clearButton = document.getElementById("clear-button");
-let deleteButton = document.getElementById("delete-button");
 let equalButton = document.getElementById("equals-button");
 let negativeButton = document.getElementById("negative-button");
 
@@ -38,16 +37,8 @@ function setClearButton() {
         displayNumber = "";
         currentOperation = "";
         result = 0;
+        negativeFlag = false;
         resultBox.innerHTML = displayNumber;
-    });
-}
-
-function setDeleteButton() {
-    deleteButton.addEventListener("click", function clearClick() {
-        if (displayNumber != "") {
-            displayNumber = displayNumber.slice(0, displayNumber.length - 1);
-            resultBox.innerHTML = displayNumber;
-        }
     });
 }
 
@@ -86,7 +77,7 @@ function setOperationButtons() {
         resultBox.innerHTML = result.toString();
         displayNumber = "";
         currentOperation = "";
-        result = 0;
+        negativeFlag = false;
     });
 }
 
@@ -99,6 +90,13 @@ function setNegativeButton() {
             displayNumber = "-".concat(displayNumber);
             resultBox.innerHTML = displayNumber;
         }
+        else {
+            negativeFlag = false;
+            result*=-1;
+            console.log(result);
+            displayNumber = displayNumber.slice(1);
+            resultBox.innerHTML = displayNumber;
+        }
     })
 }
 
@@ -109,7 +107,6 @@ multiply = (x, y) => x * y;
 
 setNumButtons();
 setClearButton();
-setDeleteButton();
 setOperationButtons();
 setEqualsButton();
 setNegativeButton();
