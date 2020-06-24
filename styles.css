@@ -13,7 +13,7 @@ h1 {
     margin: auto;
     text-align: center;
     position: relative;
-    height: 100px;
+    top: 70px;
 }
 #main-calulator-div {
     display: grid;
